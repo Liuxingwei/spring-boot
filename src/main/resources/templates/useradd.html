@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="layout/include (title='hello')">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:fragment="topCss">
+    <link rel="stylesheet" href="">
+    </th:block>
+</head>
+<body>
+Hello, world!
+<p th:text="${text}">fail</p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.liuxingwei.spring.boot.orm.mapper.UserMapper">
+    <select id="getUser" resultType="cn.liuxingwei.spring.boot.orm.domain.UserDao" parameterType="int">
+        SELECT
+          user_id userId,
+          user_name userName,
+          password password,
+          user_type userType,
+          locked locked,
+          credit credit,
+          last_visit lastVisit,
+          last_ip lastIp
+        FROM
+          t_user user
+        WHERE
+          user_id = #{userId}
+    </select>
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="userId" parameterType="cn.liuxingwei.spring.boot.orm.domain.UserDao">
+        INSERT INTO
+          t_user(user_name, password, user_type)
+        VALUES (#{userName}, #{password}, #{userType})
+    </insert>
+</mapper>
